@@ -5,7 +5,7 @@
 @endpush
 
 @section('title')
-    <img src='images/Oscar_Rangel.jpg' alt='Oscar Rangel Photograph' width="250">
+
 
 
     All the Projects
@@ -13,16 +13,23 @@
 
 @section('content')
 
-    <img src='images/controls-markvie_pc.png' alt='MarkVie Panel'>
+    {{--}}<img src='images/controls-markvie_pc.png' alt='MarkVie Panel'>--}}
 
     <h1>All Combustion Upgrade Projects</h1>
+    <style>
+        table, th, td {
+            border: 1px solid black; margin: auto; text-align: center;%; padding: 5px;
+        }
+    </style>
     <table>
         <thead>
             <tr>
-                <th> Project </th>
+                <th> Project   </th>
                 <th> Type of Unit </th>
                 <th> Frame Size </th>
                 <th> Original Control </th>
+                <th> Fuel Type </th>
+                <th> Operation </th>
         </thead>
 
         <tbody>
@@ -33,6 +40,8 @@
             <td>{{$project->Upgrade_Type }}</td>
              <td>{{$project->Frame_Size }}</td>
             <td>{{ $project->Original_Control }}</td>
+             <td>{{ $project->Fuel_Type }}</td>
+             <td>{{ $project->Operation }}</td>
          </tr>
 
         @endforeach

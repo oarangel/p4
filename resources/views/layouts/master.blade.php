@@ -15,6 +15,7 @@
 
 <header>
     <a href='/'><img src='images/controls-markvie_pc.png' alt='MarkVie Panel'>
+    @include('modules.nav')
     </a>
 
 </header>
@@ -25,6 +26,7 @@
 
 <section>
     @yield('content')
+
 </section>
 
 

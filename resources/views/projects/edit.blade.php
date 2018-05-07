@@ -19,10 +19,13 @@
 
         <div class='details'>* Required fields</div>
 
+        <div>
         <label for='upgrade_type'>* Upgrade Type</label>
         <input type='text' name='upgrade_type' id='upgrade_type' value='{{ old('upgrade_type', $project->Upgrade_Type) }}'>
         @include('modules.error-field', ['field' => 'upgrade_type'])
+        <div>
 
+        <div>
         <label for='frame_size'>* Frame Size </label>
         <select name='frame_size' id='frame_size'>
             <option value='frame_size'> {{ old('frame_size', $project->Frame_Size) }}...</option>
@@ -35,10 +38,15 @@
             <option value='51P'> Frame 51P</option>
         </select>
         @include('modules.error-field', ['field' => 'frame_size'])
+        <div>
 
+        <div>
         <label for='original_control'>* Original Control</label>
         <input type='text'maxlength='8' name='original_control' id='original_control' value='{{ old('original_control', $project->Original_Control) }}'>
         @include('modules.error-field', ['field' => 'original_control'])
+        </div>
+
+        <div>
 
         <label for='fuel_type'>* Fuel Type </label>
         <select name='fuel_type' id='fuel_type'>
@@ -48,6 +56,7 @@
             <option value='Dual'> Dual</option>
         </select>
         @include('modules.error-field', ['field' => 'original_control'])
+        </div>
 
         <label for='operation'>* Operation</label>
         <input type='text' maxlength='4' name='operation' id='operation' value='{{ old('operation', $project->Operation) }}'>

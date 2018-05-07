@@ -20,7 +20,7 @@
     </form>
 
     <p class='cancel'>
-        <a href='/books/{{ $project->id }}'>No, do not delete the Project.</a>
+        <a href='/projects/{{ $project->id }}'>No, do not delete the Project.</a>
     </p>
 
 @endsection

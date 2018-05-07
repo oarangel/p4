@@ -47,11 +47,7 @@ class ProjectController extends Controller
         ]);
     }
 
-    /**
-     * GET /projects/search
-     * @Todo: Refactor to search the projects in the database
-     * @Todo: Outsource some of the logic to a separate class
-     */
+
     public function search(Request $request)
     {
         # Start with an empty array of search results; projects that
@@ -107,10 +103,9 @@ class ProjectController extends Controller
     public function create(Request $request)
     {
         return view('projects.create')->with([
-            #'authorsForDropdown' => Author::getForDropdown(),
-            #'tagsForCheckboxes' => Tag::getForCheckboxes(),
+
             'project' => new Project(),
-            'tags' => [],
+
         ]);
     }
 
@@ -131,8 +126,10 @@ class ProjectController extends Controller
             'original_control' => 'required',
             'fuel_type' => 'required',
             'operation' => 'required',
-         #   'author_id' => 'required'
+
         ], $messages);
+
+
 
         # Save the project to the database
         $project = new Project();
@@ -175,14 +172,11 @@ class ProjectController extends Controller
         # Show the project edit form
         return view('projects.edit')->with(['project' => $project]);
 
-         #   'authorsForDropdown' => Author::getForDropdown(),
-         #   'tagsForCheckboxes' => Tag::getForCheckboxes(),
-         #   'tags' => $book->tags()->pluck('tags.id')->toArray(),
-         #   'book' => $book
+
 
     }
-       /* Process the form to edit an existing book
-       * PUT /books/{id} */
+       /* Process the form to edit an existing projects
+       * PUT /projectss/{id} */
     public function update(Request $request,$id)
     {
         $this->validate($request, [
@@ -211,51 +205,7 @@ class ProjectController extends Controller
         ]);
 
     }
-    /**
-     * Process the form to edit an existing book
-     * PUT /books/{id}
-     */
-    /**public function update(Request $request, $id)
-    {
-        # Custom validation messages
-        $messages = [
-            'author_id.required' => 'The author field is required.',
-        ];
 
-        $this->validate($request, [
-            'title' => 'required',
-            'published_year' => 'required|digits:4|numeric',
-            'cover_url' => 'required|url',
-            'purchase_url' => 'required|url',
-            'author_id' => 'required'
-        ], $messages);
-
-        # Fetch the book we want to update
-        $book = Book::find($id);
-
-        # Update data
-        $book->title = $request->title;
-        $book->published_year = $request->published_year;
-        $book->author_id = $request->author_id;
-        $book->cover_url = $request->cover_url;
-        $book->purchase_url = $request->purchase_url;
-
-        $book->tags()->sync($request->input('tags'));
-
-        # Save edits
-        $book->save();
-
-        # Send the user back to the edit page in case they want to make more edits
-        return redirect('/books/' . $id . '/edit')->with([
-            'alert' => 'Your changes were saved'
-        ]);
-    }
-
-    */
-
-    /** * Asks user to confirm they actually want to delete the book
-    * GET /books/{id}/delete
-    */
     public function delete($id)
     {
         $project = Project::find($id);
