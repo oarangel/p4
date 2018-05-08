@@ -30,6 +30,9 @@
                 <th> Original Control </th>
                 <th> Fuel Type </th>
                 <th> Operation </th>
+                <th> Edit </th>
+                <th> Delete </th>
+
         </thead>
 
         <tbody>
@@ -37,11 +40,13 @@
         @foreach($projects as $project)
          <tr>
             <td>{{$project->id }} </td>
-            <td>{{$project->Upgrade_Type }}</td>
-             <td>{{$project->Frame_Size }}</td>
-            <td>{{ $project->Original_Control }}</td>
-             <td>{{ $project->Fuel_Type }}</td>
-             <td>{{ $project->Operation }}</td>
+            <td>{{$project->upgrade_type }}</td>
+             <td>{{$project->frame_size }}</td>
+            <td>{{ $project->original_control }}</td>
+             <td>{{ $project->fuel_type }}</td>
+             <td>{{ $project->operation }}</td>
+             <td><a href='/projects/{{ $project->id }}/edit'><i class="fas fa-trash-alt"></i> Delete</a></td>
+             <td><a href='/projects/{{ $project->id }}/delete'><i class="fas fa-trash-alt"></i> Delete</a></td>
          </tr>
 
         @endforeach

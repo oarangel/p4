@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use Log;
+use App\Framesize;
 use App\Project;
-
 
 
 class ProjectController extends Controller
@@ -36,9 +37,10 @@ class ProjectController extends Controller
     {
         $project = Project::find($id);
 
+
         if (!$project) {
             return redirect('/projects')->with(
-                ['alert' => 'Project ' . $id . ' not found.']
+                ['alert' => 'Project ' .$id. ' not found.']
             );
         }
 
@@ -46,7 +48,6 @@ class ProjectController extends Controller
             'project' => $project
         ]);
     }
-
 
     public function search(Request $request)
     {
@@ -100,13 +101,17 @@ class ProjectController extends Controller
      * Show the form to create a new book
      * GET /books/create
      */
-    public function create(Request $request)
+
+        public function create(Request $request)
     {
         return view('projects.create')->with([
-
             'project' => new Project(),
-
         ]);
+
+
+
+
+        #    'project' => new Project()]);
     }
 
     /**
@@ -129,8 +134,6 @@ class ProjectController extends Controller
 
         ], $messages);
 
-
-
         # Save the project to the database
         $project = new Project();
         $project->upgrade_type = $request->upgrade_type;
@@ -146,7 +149,7 @@ class ProjectController extends Controller
         # Logging code just as proof of concept that this method is being invoked
         # Log::info('Add the book ' . $book->title);
 
-        # Send the user back to the page to add a book; include the title as part of the redirect
+        # Send the user back to the page to add a project; include the upgrade_type as part of the redirect
         # so we can display a confirmation message on that page
         return redirect('/projects/create')->with([
             'alert' => 'Your Project ' . $project->upgrade_type . ' was successfully added.'
@@ -171,13 +174,11 @@ class ProjectController extends Controller
 
         # Show the project edit form
         return view('projects.edit')->with(['project' => $project]);
-
-
-
     }
-       /* Process the form to edit an existing projects
-       * PUT /projectss/{id} */
-    public function update(Request $request,$id)
+
+    /* Process the form to edit an existing projects
+    * PUT /projectss/{id} */
+    public function update(Request $request, $id)
     {
         $this->validate($request, [
             'upgrade_type' => 'required',
@@ -185,12 +186,12 @@ class ProjectController extends Controller
             'original_control' => 'required',
             'fuel_type' => 'required',
             'operation' => 'required',
-    ]);
+        ]);
 
-    # Fetch the project we want to update
-    $project = Project::find($id);
+        # Fetch the project we want to update
+        $project = Project::find($id);
 
-    #Update Data
+        #Update Data
 
         $project->upgrade_type = $request->upgrade_type;
         #$project->frame_size = $request->frame_size_id;
@@ -199,11 +200,11 @@ class ProjectController extends Controller
         $project->fuel_type = $request->fuel_type;
         $project->operation = $request->operation;
         $project->save();
+
         # Send the user back to the edit page in case they want to make more edits
         return redirect('/projects/' . $id . '/edit')->with([
             'alert' => 'Your changes were saved'
         ]);
-
     }
 
     public function delete($id)
@@ -211,16 +212,17 @@ class ProjectController extends Controller
         $project = Project::find($id);
 
         if (!$project) {
-            return redirect('/projects')->with('alert', 'Project deleted');
+            return redirect('/projects')->with('alert', 'Project not Found');
         }
 
         return view('projects.delete')->with([
             'project' => $project,
         ]);
     }
+
     /** * Actually deletes the project
-    * DELETE /books/{id}/delete
-    */
+     * DELETE /books/{id}/delete
+     */
     public function destroy($id)
     {
         $project = Project::find($id);

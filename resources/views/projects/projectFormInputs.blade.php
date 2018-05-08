@@ -1,7 +1,7 @@
 <div class='details'>* Required fields</div>
 
 <label for='upgrade_type'>* Upgrade Type</label>
-<input type='text' name='upgrade_type' id='upgrade_type' value='{{ old('upgrade_type', $project->Upgrade_Type) }}'>
+<input type='text' name='upgrade_type' id='upgrade_type' value='{{ old('upgrade_type', $project->upgrade_type) }}'>
 @include('modules.error-field', ['field' => 'upgrade_type'])
 
 <label for='frame_size'>* Frame Size </label>
@@ -18,7 +18,7 @@
 @include('modules.error-field', ['field' => 'frame_size'])
 
 <label for='original_control'>* Original Control</label>
-<input type='text'maxlength='8' name='original_control' id='original_control' value='{{ old('original_control', $project->Original_Control) }}'>
+<input type='text'maxlength='8' name='original_control' id='original_control' value='{{ old('original_control', $project->original_control) }}'>
 @include('modules.error-field', ['field' => 'original_control'])
 
 <label for='fuel_type'>* Fuel Type </label>

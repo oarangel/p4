@@ -20,7 +20,7 @@ Route::get('/', function () {
  */
 # CREATE
 # Show the form to add a new project
-Route::get('/project/create', 'ProjectController@create');
+Route::get('/projects/create', 'ProjectController@create');
 
 # Process the form to add a new project
 Route::post('/projects', 'ProjectController@store');

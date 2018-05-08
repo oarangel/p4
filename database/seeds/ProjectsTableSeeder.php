@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Project;
+use App\Framesize;
 
 class ProjectsTableSeeder extends Seeder
 {
@@ -29,21 +30,23 @@ class ProjectsTableSeeder extends Seeder
 
             # Extract just the last name from the book data...
             # F. Scott Fitzgerald => ['F.', 'Scott', 'Fitzgerald'] => 'Fitzgerald'
-            #$name = explode(' ', $projectData[1]);
-            #$lastName = array_pop($name);
+            $name = explode(' ', $projectData[1]);
+            $frameName = array_pop($name);
 
             # Find that frame size in the frame size table
-            #$frame_size_id = Project::where('Frame_Size_id', '=', $projectData[1])->pluck('id')->first();
-
+            $framesize_id = Framesize::where('size', '=', $frameName)->pluck('id')->first();
+            #$framesize_id = Framesize::where('framesize_id') => $projectData[1];
+            #$framesize_id -> $projectData[1];
+            #$framesize_id = Framesize::with('framesize_id')->get();
             $project = new Project();
             $project->created_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
             $project->updated_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
-            $project->Upgrade_Type = $projectData[0];
-            $project->Frame_Size = $projectData[1]; # Remove the old way we stored the Frame Size
-            #$project->Frame_Size_id = $frame_size_id; # Add the new way we store the author
-            $project->Original_Control = $projectData[2];
-            $project->Fuel_Type = $projectData[3];
-            $project->Operation = $projectData[4];
+            $project->upgrade_type = $projectData[0];
+            #$project->frame_size = $projectData[1]; # Remove the old way we stored the Frame Size
+            $project->framesize_id = $framesize_id; # Add the new way we store the author
+            $project->original_control = $projectData[2];
+            $project->fuel_type = $projectData[3];
+            $project->operation = $projectData[4];
             $project->save();
             $count--;
         }

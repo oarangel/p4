@@ -16,11 +16,10 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
-            $table->string('Upgrade_Type');
-            $table->string('Frame_Size');
-            $table->string('Original_Control');
-            $table->string('Fuel_Type');
-            $table->string('Operation');
+            $table->string('upgrade_type');
+            $table->string('original_control');
+            $table->string('fuel_type');
+            $table->string('operation');
         });
     }
 

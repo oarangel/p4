@@ -27,10 +27,7 @@ class FramesizesTableSeeder extends Seeder
 
             # First, figure out the id of the author we want to associate with this book
 
-            # Extract just the last name from the book data...
-            # F. Scott Fitzgerald => ['F.', 'Scott', 'Fitzgerald'] => 'Fitzgerald'
-            #$name = explode(' ', $projectData[1]);
-            #$lastName = array_pop($name);
+
 
             # Find that author in the authors table
             #$author_id = Author::where('last_name', '=', $lastName)->pluck('id')->first();
@@ -38,10 +35,9 @@ class FramesizesTableSeeder extends Seeder
             $framesize = new Framesize();
             $framesize->created_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
             $framesize->updated_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
-            $framesize->Frame_Size = $framesizeData[0];
-            $framesize->Combustor_type = $framesizeData[1]; # Remove the old way we stored the author
-            #$project->author_id = $author_id; # Add the new way we store the author
-            $framesize->Nox_Injection = $framesizeData[2];
+            $framesize->size = $framesizeData[0];
+            $framesize->combustor_type = $framesizeData[1];
+            $framesize->nox_injection = $framesizeData[2];
             $framesize->Frequency = $framesizeData[3];
             $framesize->save();
             $count--;

@@ -16,10 +16,10 @@ class CreateFramesizesTable extends Migration
         Schema::create('framesizes', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('Frame_Size');
-            $table->string('Combustor_Type');
-            $table->string('Nox_Injection');
-            $table->string('Frequency');
+            $table->string('size');
+            $table->string('combustor_type');
+            $table->string('nox_injection');
+            $table->string('frequency');
         });
     }
 
