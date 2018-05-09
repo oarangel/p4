@@ -28,6 +28,7 @@
 @endif
 
 <section>
+
     @yield('content')
 
 </section>

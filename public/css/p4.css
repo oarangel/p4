@@ -116,3 +116,7 @@ div.c {
     font-style: italic;
     text-align: center;
 }
+
+ul.remove {
+    list-style-type: none;
+}

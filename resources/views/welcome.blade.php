@@ -17,14 +17,16 @@
         Choose from the options above to get started.
     </div>
 
-     <div class='c'>
+    <div class='c'>
 
-    <ul class='a'>
-        <li><b>Home</b> - Project Homepage</li>
-        <li><b>List of Projects</b> -provides the list of completed projects, allows user to <i>EDIT / DELETE</i> projects</li>
-        <li><b>New Project</b> - allows user to add a new project to the datbase</li>
-    </ul>
+        <ul class='remove'>
+            <li><b>Home</b> - Project Homepage</li>
+            <li><b>List of Projects</b> -provides the list of completed projects, allows user to
+                <i>EDIT / DELETE</i> projects
+            </li>
+            <li><b>New Project</b> - allows user to add a new project to the datbase</li>
+        </ul>
 
-      </div>
+    </div>
 
 @endsection
