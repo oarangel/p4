@@ -5,7 +5,7 @@ use App\Framesize;
 
 class FramesizesTableSeeder extends Seeder
 {
-    
+
     public function run()
     {
         $framesizes = [

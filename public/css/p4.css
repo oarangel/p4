@@ -42,11 +42,14 @@ nav ul li a:hover {
 
 
 p {
-    font-size: 14px;
+    font-size: 24px;
+    text-align: center;
 }
 
 p.ex2 {
-    display: inline;
+    font-size: 20px;
+    text-align-all: center;
+    text-align: center;
 }
 
 .amount {
@@ -107,4 +110,9 @@ h5 {
 }
 .cancel {
     margin-top: 20px;
+}
+div.c {
+    font-size: 100%;
+    font-style: italic;
+    text-align: center;
 }
