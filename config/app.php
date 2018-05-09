@@ -5,7 +5,7 @@ return [
 
         'nav' => [
             '/' => 'Home',
-            '/projects' => 'Projects',
+            '/projects' => 'List of Projects',
             '/projects/create' => 'New Project',
 
         ],

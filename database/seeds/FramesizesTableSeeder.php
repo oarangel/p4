@@ -5,11 +5,7 @@ use App\Framesize;
 
 class FramesizesTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+    
     public function run()
     {
         $framesizes = [
@@ -26,12 +22,7 @@ class FramesizesTableSeeder extends Seeder
 
         foreach ($framesizes as $key => $framesizeData) {
 
-            # First, figure out the id of the author we want to associate with this book
 
-
-
-            # Find that author in the authors table
-            #$author_id = Author::where('last_name', '=', $lastName)->pluck('id')->first();
 
             $framesize = new Framesize();
             $framesize->created_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();

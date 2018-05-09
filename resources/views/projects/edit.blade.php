@@ -78,4 +78,20 @@
 
     @include('modules.error-form')
 
+    @foreach($tagsForCheckboxes as $tagId => $tagName)
+        <ul>
+            <li>
+                <label>
+                    <input
+                        {{ (in_array($tagId, $tags)) ? 'checked' : '' }}
+                        type='checkbox'
+                        name='tags[]'
+                        value='{{ $tagId }}'>
+                    {{ $tagName }}
+                </label>
+            </li>
+        </ul>
+    @endforeach
+
 @endsection
+

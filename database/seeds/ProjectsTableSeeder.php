@@ -14,9 +14,9 @@ class ProjectsTableSeeder extends Seeder
     public function run()
     {
         $projects = [
-            ['Full Panel Replacement', '7FA', 'MKV', 'Dual', 'Base'],
-            ['Full Panel Replacement', '61B', 'MKIV', 'Gas', 'Peak'],
-            ['Full Panel Replacement', '7EA', 'MKV', 'Dual', 'Base'],
+            ['Full Panel', '7FA', 'MKV', 'Dual', 'Base'],
+            ['Full Panel', '61B', 'MKIV', 'Gas', 'Peak'],
+            ['Panel Insert', '7EA', 'MKV', 'Dual', 'Base'],
             ['Migration', '6FA', 'MKV', 'Gas', 'Base'],
             ['Migration', '7FA', 'MKVI', 'Gas', 'Base'],
             ['Migration', '51P', 'MKVI', 'Gas', 'Base'],
@@ -36,10 +36,7 @@ class ProjectsTableSeeder extends Seeder
             # Find that frame size in the frame size table
             $framesize_id = Framesize::where('size', '=', $frameName)->pluck('id')->first();
 
-            dump($framesize_id);
-            #$framesize_id = Framesize::where('framesize_id') => $projectData[1];
-            #$framesize_id -> $projectData[1];
-            #$framesize_id = Framesize::with('framesize_id')->get();
+
             $project = new Project();
             $project->created_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
             $project->updated_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();

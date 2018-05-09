@@ -1,4 +1,4 @@
-<div class='details'>* Required fields</div>
+<div class='details' xmlns="http://www.w3.org/1999/html">* Required fields</div>
 
 <label for='upgrade_type'>* Upgrade Type</label>
 <input type='text' name='upgrade_type' id='upgrade_type' value='{{ old('upgrade_type', $project->upgrade_type) }}'>
@@ -36,3 +36,14 @@
 <label for='operation'>* Operation</label>
 <input type='text' maxlength='4' name='operation' id='operation' value='{{ old('operation', $project->operation) }}'>
 @include('modules.error-field', ['field' => 'operation'])
+
+@foreach($tagsForCheckboxes as $tagId => $tagName)
+    <ul>
+        <li>
+            <label>
+                <input type='checkbox' name='tags[]' value='{{ $tagId }}'>
+                {{ $tagName }}
+            </label>
+        </li>
+    </ul>
+@endforeach

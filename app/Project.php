@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    public function framesize()
+    public function tags()
     {
-    #Project belongs to Framesize
-    return $this->belongsTo('App\Framesize');
+    #Project belongs to Tag
+    return $this->belongsToMany('App\Tag')->withTimestamps();
     }
 }
