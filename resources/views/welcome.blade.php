@@ -1,13 +1,14 @@
 @extends('layouts.master')
 
+
 @section('title')
     Combustion Turbine Upgrade Database
 @endsection
 
 @section('content')
-    <p class='ex1'>
+    <h3>
         Combustion Turbine Control Upgrades
-    </p>
+    </h3>
 
     <p class='ex2'>
         The Combustion Turbine Upgrade Database organizer provides a history of completed controls upgrades for the different types of units.
