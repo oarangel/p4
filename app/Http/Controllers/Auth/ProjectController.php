@@ -100,24 +100,41 @@ class ProjectController extends Controller
     /**
      * Show the form to create a new book
      * GET /books/create
-     */
+
 
         public function create(Request $request)
     {
         return view('projects.create')->with([
             'project' => new Project(),
         ]);
+    */
+        public function create(Request $request)
+    {
+        $framesizes = Framesize::orderBy('size')->get();
 
+        $framesizesForDropdown =[];
+        foreach ($framesizes as $framesize) {
+            $framesizesForDropdown [$framesize->id] = $framesize->size;
+        }
 
+        dump($framesizesForDropdown);
 
-
-        #    'project' => new Project()]);
+        return view('projects.create')->with([
+            'framesizesForDropdown' => $framesizesForDropdown,
+         #   'tagsForCheckboxes' => Tag::getForCheckboxes(),
+            'project' => new Project(),
+         #   'tags' => [],
+        ]);
     }
+
+
+
 
     /**
      * Process the form to create a new book
      * POST /
      */
+
     public function store(Request $request)
     {
         # Custom validation messages
@@ -127,7 +144,7 @@ class ProjectController extends Controller
 
         $this->validate($request, [
             'upgrade_type' => 'required',
-            'frame_size' => 'required',
+            'framesize_id' => 'required',
             'original_control' => 'required',
             'fuel_type' => 'required',
             'operation' => 'required',
@@ -137,13 +154,13 @@ class ProjectController extends Controller
         # Save the project to the database
         $project = new Project();
         $project->upgrade_type = $request->upgrade_type;
-        #$project->frame_size = $request->frame_size_id;
-        $project->frame_size = $request->frame_size;
+        $project->framesize_id = $request->framesize_id;
+        #$project->frame_size = $request->frame_size;
         $project->original_control = $request->original_control;
         $project->fuel_type = $request->fuel_type;
         $project->operation = $request->operation;
         $project->save();
-
+        dump($project->toArray());
         #$project->tags()->sync($request->input('tags'));
 
         # Logging code just as proof of concept that this method is being invoked
@@ -160,6 +177,7 @@ class ProjectController extends Controller
      * Show the form to edit an existing book
      * GET /books/{id}/edit
      */
+    /**
     public function edit($id)
     {
         # Get this book and eager load its tags
@@ -175,14 +193,36 @@ class ProjectController extends Controller
         # Show the project edit form
         return view('projects.edit')->with(['project' => $project]);
     }
+    */
+    public function edit(Request $request, $id)
+    {
+        $framesizes = Framesize::orderBy('size')->get();
+        $project = Project::find($id);
+
+        $framesizesForDropdown =[];
+        foreach ($framesizes as $framesize) {
+            $framesizesForDropdown [$framesize->id] = $framesize->size;
+        }
+
+        dump($framesizesForDropdown);
+
+        return view('projects.edit')->with([
+            'framesizesForDropdown' => $framesizesForDropdown,
+            #   'tagsForCheckboxes' => Tag::getForCheckboxes(),
+            'project' => $project,
+            #   'tags' => [],
+        ]);
+    }
+
+
 
     /* Process the form to edit an existing projects
-    * PUT /projectss/{id} */
+    * PUT /projects/{id} */
     public function update(Request $request, $id)
     {
         $this->validate($request, [
             'upgrade_type' => 'required',
-            'frame_size' => 'required',
+            'framesize_id' => 'required',
             'original_control' => 'required',
             'fuel_type' => 'required',
             'operation' => 'required',
@@ -195,7 +235,7 @@ class ProjectController extends Controller
 
         $project->upgrade_type = $request->upgrade_type;
         #$project->frame_size = $request->frame_size_id;
-        $project->frame_size = $request->frame_size;
+        $project->framesize_id = $request->framesize_id;
         $project->original_control = $request->original_control;
         $project->fuel_type = $request->fuel_type;
         $project->operation = $request->operation;

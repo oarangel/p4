@@ -18,8 +18,9 @@ class ConnectFramesizesAndProjects extends Migration
             # Add a new INT field called `framesize_id` that has to be unsigned (i.e. positive)
             $table->integer('framesize_id')->unsigned();
 
-            # This field `framesize_id` is a foreign key that connects to the `id` field in the `projects` table
-            $table->foreign('framesize_id')->references('id')->on('projects');
+            # This field `framesize_id` is a foreign key that connects to the `id` field in the `framesizes` table
+            $table->foreign('framesize_id')->references('id')->on('framesizes');
+
 
         });
     }
@@ -30,9 +31,12 @@ class ConnectFramesizesAndProjects extends Migration
 
             # ref: http://laravel.com/docs/migrations#dropping-indexes
             # combine tablename + fk field name + the word "foreign"
-            $table->dropForeign('projects_framesize_id_foreign');
+            $table->dropForeign('framesizes_framesize_id_foreign');
 
             $table->dropColumn('framesize_id');
         });
+
     }
+
 }
+

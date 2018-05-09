@@ -15,11 +15,11 @@ class ProjectsTableSeeder extends Seeder
     {
         $projects = [
             ['Full Panel Replacement', '7FA', 'MKV', 'Dual', 'Base'],
-            ['Migration', '51P', 'MKII', 'Liquid', 'Peak'],
             ['Full Panel Replacement', '61B', 'MKIV', 'Gas', 'Peak'],
             ['Full Panel Replacement', '7EA', 'MKV', 'Dual', 'Base'],
             ['Migration', '6FA', 'MKV', 'Gas', 'Base'],
             ['Migration', '7FA', 'MKVI', 'Gas', 'Base'],
+            ['Migration', '51P', 'MKVI', 'Gas', 'Base'],
         ];
 
         $count = count($projects);
@@ -35,6 +35,8 @@ class ProjectsTableSeeder extends Seeder
 
             # Find that frame size in the frame size table
             $framesize_id = Framesize::where('size', '=', $frameName)->pluck('id')->first();
+
+            dump($framesize_id);
             #$framesize_id = Framesize::where('framesize_id') => $projectData[1];
             #$framesize_id -> $projectData[1];
             #$framesize_id = Framesize::with('framesize_id')->get();

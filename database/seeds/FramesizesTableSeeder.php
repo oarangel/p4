@@ -19,6 +19,7 @@ class FramesizesTableSeeder extends Seeder
             ['61B','MNQC', 'None', '50HZ'],
             ['6FA','DLN2.0', 'Water', '50HZ'],
             ['71B', 'Standard', 'Water', '60HZ'],
+            ['51P', 'Standard', 'Water', '60HZ'],
         ];
 
         $count = count($framesizes);

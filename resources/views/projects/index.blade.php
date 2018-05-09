@@ -38,14 +38,15 @@
         <tbody>
     @if(count($projects) > 0)
         @foreach($projects as $project)
+
          <tr>
             <td>{{$project->id }} </td>
             <td>{{$project->upgrade_type }}</td>
-             <td>{{$project->frame_size }}</td>
+             <td>{{$project->framesize_id }}</td>
             <td>{{ $project->original_control }}</td>
              <td>{{ $project->fuel_type }}</td>
              <td>{{ $project->operation }}</td>
-             <td><a href='/projects/{{ $project->id }}/edit'><i class="fas fa-trash-alt"></i> Delete</a></td>
+             <td><a href='/projects/{{ $project->id }}/edit'><i class="fas fa-trash-alt"></i> Edit</a></td>
              <td><a href='/projects/{{ $project->id }}/delete'><i class="fas fa-trash-alt"></i> Delete</a></td>
          </tr>
 
