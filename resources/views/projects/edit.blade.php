@@ -53,7 +53,7 @@
 
         <div>
         <label for='original_control'>* Original Control</label>
-        <input type='text'maxlength='8' name='original_control' id='original_control' value='{{ old('original_control', $project->original_control) }}'>
+        <input type='text' maxlength='8' name='original_control' id='original_control' value='{{ old('original_control', $project->original_control) }}'>
         @include('modules.error-field', ['field' => 'original_control'])
         </div>
 
