@@ -12,13 +12,13 @@
     <h1>Confirm deletion</h1>
 
     <p>Are you sure you want to delete <strong>{{ $project->upgrade_type }}</strong>?</p>
-
+    <div class='c'>
     <form method='POST' action='/projects/{{ $project->id }}'>
         {{ method_field('delete') }}
         {{ csrf_field() }}
         <input type='submit' value='Yes, delete Project!' class='btn btn-danger btn-small'>
     </form>
-
+    </div>
     <p class='cancel'>
         <a href='/projects/{{ $project->id }}'>No, do not delete the Project.</a>
     </p>

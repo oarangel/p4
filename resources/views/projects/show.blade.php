@@ -10,7 +10,7 @@
 
     <style>
         table, th, td {
-            border: 1px solid black; margin: auto; text-align: center;%; padding: 5px;
+            border: 1px solid black; margin: auto; text-align: center; padding: 7px;
         }
     </style>
     <table>

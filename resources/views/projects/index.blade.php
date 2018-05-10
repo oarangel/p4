@@ -18,7 +18,7 @@
     <h1>All Combustion Upgrade Projects</h1>
     <style>
         table, th, td {
-            border: 1px solid black; margin: auto; text-align: center;%; padding: 5px;
+            border: 1px solid black; margin: auto; text-align: center; padding: 5px;
         }
     </style>
     <table>

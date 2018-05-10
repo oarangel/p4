@@ -5,9 +5,7 @@
 @endsection
 
 @push('head')
-    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'
-          rel='stylesheet' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm'
-          crossorigin='anonymous'>
+
     <link href='/css/form.css' type='text/css' rel='stylesheet'>
 @endpush
 
@@ -21,7 +19,7 @@
 
         @include('projects.projectFormInputs')
 
-        <input type='submit' value='Add a Project' class='btn btn-primary'>
+        <input type='submit' value='Add a Project' class='btn btn-primary w-200'>
     </form>
     <div>
     @include('modules.error-form')

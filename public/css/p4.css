@@ -45,7 +45,10 @@ p {
     font-size: 24px;
     text-align: center;
 }
-
+p.ex1 {
+    font-size: 14px;
+    display: inline;
+}
 p.ex2 {
     font-size: 20px;
     text-align-all: center;

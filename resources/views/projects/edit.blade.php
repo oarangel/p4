@@ -73,25 +73,27 @@
         <input type='text' maxlength='4' name='operation' id='operation' value='{{ old('operation', $project->operation) }}'>
         @include('modules.error-field', ['field' => 'operation'])
 
+        @foreach($tagsForCheckboxes as $tagId => $tagName)
+            <ul class='remove'>
+                <li>
+                    <label>
+                        <input
+                            {{ (in_array($tagId, $tags)) ? 'checked' : '' }}
+                            type='checkbox'
+                            name='tags[]'
+                            value='{{ $tagId }}'>
+                        {{ $tagName }}
+                    </label>
+                </li>
+            </ul>
+        @endforeach
+
         <input type='submit' value='Save Changes' class='btn btn-primary'>
     </form>
 
     @include('modules.error-form')
 
-    @foreach($tagsForCheckboxes as $tagId => $tagName)
-        <ul>
-            <li>
-                <label>
-                    <input
-                        {{ (in_array($tagId, $tags)) ? 'checked' : '' }}
-                        type='checkbox'
-                        name='tags[]'
-                        value='{{ $tagId }}'>
-                    {{ $tagName }}
-                </label>
-            </li>
-        </ul>
-    @endforeach
+
 
 @endsection
 
